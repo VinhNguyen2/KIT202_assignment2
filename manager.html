@@ -1,0 +1,349 @@
+
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="newstyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Load font family from Google web fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="newstyles.css">
+    <link rel="stylesheet" href="icofont.min.css">
+
+    <link rel="stylesheet" href="newstyles.css">
+    <script>
+        //JavaScript funtion to load page
+    
+    function openAdmin(admin_page) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(admin_page).style.display = "block";
+    }
+
+    
+    </script>
+
+<div class="row">
+
+    <div class="col">
+
+        <div class="row manager_menu">
+
+            <div class="col">
+
+                <div class="manager_nav">
+                    <button class="admin_btn"  onclick="openAdmin('admin_accomodation')">Accomodations</button>
+                    <button class="admin_btn"  onclick="openAdmin('admin_user')">Users</button>
+                    <button class="admin_btn"  onclick="openAdmin('admin_review')">Review</button>
+                  </div>
+ 
+
+
+            </div>
+
+        </div>
+
+
+
+
+            <div class="rol manager_content">
+
+                <div class="col">
+
+
+                <div id="admin_accomodation" class="city">
+                
+                    <div class="row accomodation_section">
+        
+                        <div class="col-6 acomodation_1st_col">
+                
+                
+                            <div class='row accomodation_info'>
+                
+                
+                                <div class="col-4 accomodation_img">
+                
+                                    <img class="img-fluid" class="img-fluid" class="img-fluid" class="img-fluid" src='./img/house1.jpg'>
+                
+                                </div>
+                
+                
+                
+                                <div class="col-8 accomodation_details">
+                
+                                <label class='accomodation_title'>Three bed room house with parking slots</label> <br>
+                                
+                                
+                                Address: 114 Elizabeth St, Launceston 7250 <br>
+                
+                               
+                
+                
+                                $450/w &nbsp; 3 <i class="icofont-bed"></i> &nbsp; 2 <i class="icofont-bathtub"></i>&nbsp;  2 <i class="icofont-car"></i> <br>
+                
+                
+                                Status: Pending for approval <br>
+                
+                               
+                                <input type="button" class="accomodation_btn" value="Edit" onclick=""> 
+                                <input type="button" class="accomodation_btn" value="Remove" onclick=""> 
+                
+                                </div>
+                
+                
+                            </div>
+                
+                            
+                        </div>
+                
+                
+                
+                        <div class="col-6 accomodation_2nd_col">
+                            
+                
+                            <div class='row accomodation_info'>
+                
+                
+                                <div class="col-4 accomodation_img">
+                
+                                    <img class="img-fluid" class="img-fluid" class="img-fluid" class="img-fluid" src='./img/house2.jpg'>
+                
+                
+                                </div>
+                
+                                <div class="col-8 accomodation_details">
+                
+                                <label class='accomodation_title'>Comfy house with pets allowance</label> <br>
+                                Address: 78 Queenstreet Mall, Hobart 7000 <br>
+                                
+                                
+                
+                
+                                $550/w &nbsp; 4 <i class="icofont-bed"></i> &nbsp; 2 <i class="icofont-bathtub"></i>&nbsp;  4 <i class="icofont-car"></i> <br>
+                
+                                Status: Approved <br>
+                                
+                                <input type="button" class="accomodation_btn" value="Edit" onclick=""> 
+                                <input type="button" class="accomodation_btn" value="Remove" onclick=""> 
+                
+                                </div>
+                
+                
+                            </div>
+                            
+                            
+                        </div>
+                
+                    </div>
+                
+
+
+                </div>
+
+
+
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div id="admin_user" class="city" style="display:none">
+
+
+           
+
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Role</th>
+                            <th scope="col"><button class=".btn-warning"> CREATE NEW USER</button></th> 
+                          </tr>
+                        </thead>
+
+
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark Twain</td>
+                            <td>mark@yahoo.com</td>
+                            <td>User</td>
+                            <td><button>Edit</button>&nbsp;<button>Delete</button></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jame Bond</td>
+                            <td>jame007@mi6.com</td>
+                            <td>User</td>
+                            <td><button>Edit</button>&nbsp;<button>Delete</button></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Robin Hood</td>
+                            <td>rob_rich_give_poor@yahoo.com</td>
+                            <td>User</td>
+                            <td><button>Edit</button>&nbsp;<button>Delete</button></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>Danh Tran</td>
+                            <td>tcd@yahoo.com</td>
+                            <td>Host</td>
+                            <td><button>Edit</button>&nbsp;<button>Delete</button></td>
+                          </tr>
+
+                          <tr>
+                            <th scope="row">5</th>
+                            <td>Vinh Pham</td>
+                            <td>vp@yahoo.com</td>
+                            <td>Host</td>
+                            <td><button>Edit</button>&nbsp;<button>Delete</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                </div>
+
+
+
+
+
+
+                <div id="admin_review" class="city" style="display:none">
+
+
+                    <div class="row accomodation_section">
+        
+                        <div class="col-6 acomodation_1st_col">
+                
+                
+                            <div class='row accomodation_info'>
+                
+                
+                                <div class="col-4 accomodation_img">
+                
+                                    <img class="img-fluid" class="img-fluid" class="img-fluid" class="img-fluid" src='./img/house1.jpg'>
+                
+                                </div>
+                
+                
+                
+                                <div class="col-8 accomodation_details">
+                
+                                <label class='accomodation_title'>Three bed room house with parking slots</label> <br>
+                                
+                                Review from guest: <br>
+                                This house truly need a better clean. Kitchen lights need to be replace. Average experience. <br>
+                
+                                
+                                <input type="button" class="accomodation_btn" value="Remove" onclick=""> 
+                
+                                </div>
+                
+                
+                            </div>
+                
+                            
+                        </div>
+                
+                
+                
+                        <div class="col-6 accomodation_2nd_col">
+                            
+                
+                            <div class='row accomodation_info'>
+                
+                
+                                <div class="col-4 accomodation_img">
+                
+                                    <img class="img-fluid" class="img-fluid" class="img-fluid" src='./img/house2.jpg'>
+                
+                
+                                </div>
+                
+                                <div class="col-8 accomodation_details">
+                
+                                <label class='accomodation_title'>Comfy house with pets allowance</label> <br>
+                                Address: 78 Queenstreet Mall, Hobart 7000 <br>
+                                Review from guest:
+
+                                Our family had a good experience here. Comfy house with nice host. Will back again.<br>
+                                
+                
+                                <input type="button" class="accomodation_btn" value="Remove" onclick=""> 
+                
+                                </div>
+                
+                
+                            </div>
+                            
+                            
+                        </div>
+                
+                    </div>
+
+
+
+
+               
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
