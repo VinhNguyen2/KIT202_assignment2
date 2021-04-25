@@ -34,7 +34,6 @@ if(isset($_GET['error']))
                 </form>
                  <text>Don't have an account? <button id="registerId" onclick="location.href='Registration.php'"> Register</button></text>
                 <button onclick="location.href='./index.php'">go back to main page </button>
-                     
 
             </div>  
             </div>
