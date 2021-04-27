@@ -1,0 +1,41 @@
+// initialise line of get method header
+
+
+GET /utas.edu.au/index.html HTTP/1.1
+
+
+
+post
+
+
+HTTP/1.1 200 OK
+
+
+- General header
+
+- Request header
+
+- Respon header
+
+
+
+
+Q8/
+
+CREATE TABLE users(
+    ID int,
+    LastName varchar(255),
+    FirstName varchar(255)
+
+    );
+
+INSERT into users values (1, 'Danh', 'Tran');
+
+Q8b/
+
+Projection --> for selecting the columns of table; and
+Selection ---> to select the rows of table?
+
+
+Q6/
+
