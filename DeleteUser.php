@@ -19,9 +19,6 @@ include('db_conn.php');   //db connection
 $sql = "SELECT * FROM Customer";
 $result = mysqli_query($conn, $sql);
 
-// get data from Levelaccess table
-//$sql1 = "SELECT * FROM Levelaccess WHERE Customer_ID == customer_ID ";
-//$result1 = mysqli_query($conn, $sql1);
 
 if (mysqli_num_rows($result) > 0){
     
@@ -65,8 +62,7 @@ if (mysqli_num_rows($result) > 0){
          if (isset($_POST['delete'])){
              //$ID=$_POST["customer_ID"];
              
-             //$query = "DELETE FROM Customer WHERE Customer_ID = '$ID'";
-             $query = "delete from Customer, Levelaccess where customer_ID =Customer_ID and customer_ID ='$_POST[customer_ID]'";
+             $query = "delete from Customer where customer_ID ='$_POST[customer_ID]'";
              $conn->query($query);
 
              // delet from Levelaccess table
