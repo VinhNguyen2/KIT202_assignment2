@@ -1,45 +1,77 @@
 <?php
 include('db_conn.php')
 ?>
+<!
+
 
 <?php
+include('db_conn.php');
 if(isset($_POST['register'])){
 	$firstname = $_POST['firstname'];
 	$lastname = $_POST['lastname'];
   $email = $_POST['email'];
 	$phone = $_POST['mobile'];
-	$password = $_POST['password'];
+	$password1 = $_POST['password'];
+  $confirm_pass = $_POST['confirm_pwd'];
   $address = $_POST['address'];
 	$city = $_POST['city'];
   $ABN = $_POST['abn'];
 
-    // Escape user inputs for security
+// verify email
+  $query = "SELECT FROM Customer WHERE `email`='$email');";
+		$result = mysqli_query($conn, $query);
+    if(mysqli_num_rows($result) != 0) {
+			$detailserror .= "Email already registered.<br>";
+		}
 
-$firstname = mysql_real_escape_string($firstname);
-$lastname = mysql_real_escape_string($lastname);
-$email = mysql_real_escape_string($email);
-$phone = mysql_real_escape_string($phone);
-$password = mysql_real_escape_string($password);
-$address= mysql_real_escape_string($address);
-$city = mysql_real_escape_string($city);
-$ABN = mysql_real_escape_string($ABN);
+    //check password
+    if ($password1 != $confirm_pass) {
+			$passworderror .= "Passwords do not match.<br>";
+		}
+
+    //$passworderror .= checkPassword($password1); will do
+		$password = MD5($password1);
 
     // Attempt insert query execution
-$sql = "INSERT INTO Customer (`customer_ID`, `first_name`, `last_name`, `email`, `phone`, `password`, `address`, `city`,`ABN`) VALUES (NULL,'$firstname', '$lastname', '$email', '$phone','$email','$password','$address','$city','$ABN');";
-mysqli_query($conn, $sql);
-if(mysqli_query($conn, $sql)){
-    echo "Records added successfully.";
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
-}
- 
-// Close connection
-//mysqli_close();
+$sql = 'INSERT INTO Customer (first_name, last_name, email, phone, password, address, city, ABN) VALUES (?, ?, ?, ?, ?, ?, ? ,?)';
+		$query = $conn->prepare($sql );
+		$query->bind_param( 'ssssssss', $firstname, $lastname, $email, $phone, $password, $address, $city, $ABN );
+    if ( ! $query->execute() ) {
+			trigger_error( 'Error adding customer: ' . $query->error );
+		}
+    mysqli_close();
+
+    if( $ABN == ''){
+      $access = 1;
+      $description = 'Client';
+    } elseif( $ABN != ''){
+      $access = 2;
+      $description = 'Host'; 
+    }
+    $query = "SELECT * FROM Customer ORDER BY customer_ID DESC LIMIT 1;";
+
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_array($result);
+    $id = $row['customer_ID'];
+
+    $sql1 = 'INSERT INTO Levelaccess (level_code, description, Customer_ID) VALUES (?, ?, ?)';
+		$query1 = $conn->prepare($sql1 );
+		$query1->bind_param( 'ssi', $access, $description, $id);
+    if ( ! $query1->execute() ) {
+			trigger_error( 'Error adding Level access: ' . $query1->error );
+		}
+    
+		header( 'Location: index.php' );
+		die;
+// Close connection 
+mysqli_close();
+
 }
 ?>
+
 <div class = "form-body">
-<form method = "post" >
-  <table class="table table_reg">
+<form method = "post" id="signupform" onsubmit="return validate();"  >
+<table>
     <thead>
       <br>
     </thead>
@@ -121,10 +153,11 @@ if(mysqli_query($conn, $sql)){
       <tr>
         <td colspan="2" class="reg_btn">
           <br>
-          <input type="submit" value = "Register", class="btn btn-primary float-right", name = "register"/>
+          <input type="submit" value = "Submit", class="btn btn-primary float-right", name = "register"/>
         </td>
       </tr>
     </body>
   </table>
 </form>
 </div>
+
