@@ -3,29 +3,35 @@
 $db_host = 'localhost';
 $db_user = 'root';
 $db_password = 'root';
-$db_db = 'information_schema';
+$db_db = 'group30_db';
 $db_port = 8889;
 
 
-$mysqli = new mysqli(
-    $db_host,
-    $db_user,
-    $db_password,
-    $db_db
-  );
+$conn = mysqli_connect($db_host,$db_user,$db_password,$db_db);
 	
-  if ($mysqli->connect_error) {
-    echo 'Errno: '.$mysqli->connect_errno;
-    echo '<br>';
-    echo 'Error: '.$mysqli->connect_error;
-    exit();
+  if ($conn === false) {
+    die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
   echo 'Success: A proper connection to MySQL was made.';
   echo '<br>';
-  echo 'Host information: '.$mysqli->host_info;
+  echo 'Host information: '.$conn->host_info;
   echo '<br>';
-  echo 'Protocol version: '.$mysqli->protocol_version;
+  echo 'Protocol version: '.$conn->protocol_version;
 
-  $mysqli->close();
+  //$mysqli->close(); 
+
+
+  //$sql = "INSERT INTO Customer (first_name, last_name, email, phone, password, address, city,ABN) VALUES ('Tim', 'Tam', 'timtam@choco.com', '234432','23424','123 Street','Hobart','23424');";
+      
+  //    if(mysqli_query($conn, $sql)){
+  //        echo "Records added successfully.";
+  //    } else{
+  //        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+  //    }
+
+
+
+ 
+  
 ?>

@@ -1,6 +1,17 @@
 <?php
-$age = array("John"=>"55", "Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
-foreach ($age as $x => $x_value) {
-echo "Key=" . $x . ", value=" . ($x_value + 10) . "<br/>";
-}
+$message = "";
+if(isset($_POST['SubmitButton'])){ //check if form was submitted
+  $input = $_POST['inputText']; //get input text
+  $message = "Success! You entered: ".$input;
+}    
 ?>
+
+<html>
+<body>    
+<form action="" method="post">
+<?php echo $message; ?>
+  <input type="text" name="inputText"/>
+  <input type="submit" name="SubmitButton"/>
+</form>    
+</body>
+</html>
