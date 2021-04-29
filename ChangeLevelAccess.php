@@ -59,20 +59,17 @@ if (mysqli_num_rows($result) > 0){
              $description = $_POST["desription"];
             
             
-           // $query = $mysqli->prepare(
-              //  'UPDATE Levelaccess SET level_code = ?, description = ? WHERE Customer_ID = ?'
-           // );
+              // update from Levelaccess table
+            $query = $mysqli->prepare(
+                'UPDATE Levelaccess SET level_code = ?, description = ? WHERE Customer_ID = ?'
+            );
     
-          //  $query->bind_param( 'isi', $Level, $description, $ID );
+            $query->bind_param( 'isi', $Level, $description, $ID );
     
-         //   if ( ! $query->execute() ) {
-               // trigger_error( 'Error updating participant: ' . $query->error );
-          //  }
+            if ( ! $query->execute() ) {
+                trigger_error( 'Error updating participant: ' . $query->error );
+            }
     
-
-             // update from Levelaccess table
-             $query = "update Levelaccess set level_code = $Level, description = $description] where Customer_ID =  $ID'";
-             $conn->query($query);
              header( 'Location: ChangeLevelAccess.php' );
              
          }
