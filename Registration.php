@@ -1,8 +1,6 @@
 <?php
 include('db_conn.php')
 ?>
-<!
-
 
 <?php
 include('db_conn.php');
@@ -18,7 +16,8 @@ if(isset($_POST['register'])){
   $ABN = $_POST['abn'];
 
 // verify email
-  $query = "SELECT FROM Customer WHERE `email`='$email');";
+$query = "SELECT email, password FROM Customer WHERE email='$email'";
+  //$query = "SELECT FROM Customer WHERE `email`='$email');";
 		$result = mysqli_query($conn, $query);
     if(mysqli_num_rows($result) != 0) {
 			$detailserror .= "Email already registered.<br>";
@@ -51,6 +50,7 @@ $sql = 'INSERT INTO Customer (first_name, last_name, email, phone, password, add
     $query = "SELECT * FROM Customer ORDER BY customer_ID DESC LIMIT 1;";
 
     $result = mysqli_query($conn, $query);
+//$row2 = mysqli_fetch_array($result);
     $row = mysqli_fetch_array($result);
     $id = $row['customer_ID'];
 
@@ -107,6 +107,7 @@ mysqli_close();
           <label for="email">Email</label>
           <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             title="email must be in the following order: characters@characters.domain" required>
+            <font color="red"><?php echo $detailserror; ?></font>
         </td>
         <td>
           <label for="email">Mobile</label>
@@ -161,3 +162,148 @@ mysqli_close();
 </form>
 </div>
 
+
+<script type="text/javascript">
+            
+            //validate all the input
+            function validate(){
+	           if ($("#fname").val()==""){
+                   alert("Please enter your first name.");
+                   return false;
+	           }
+                else if (!/[A-Za-z/s]$/.test($("#fname").val())) {
+                    alert("Wrong name format.");
+                    return false;   
+                }
+                else if($("#lname").val()=="") {
+                    alert("Please enter your last number.");
+                    return false;
+                }
+               else if( !/^[A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~\;]+[A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~\;\.]*[A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~\;]@([A-Za-z0-9/-]+[.])+[A-Za-z0-9/-]{1,}$/.test($("#email").val()) || /([\S]{65,})@([\S])/.test($("#email").val()) || /([\S])@([\S]{256,})/.test($("#email").val()) || /([\.])\1/.test($("#email").val().match(/(\S*)@/)[1]) ) {
+                    alert("Wrong format of email"); 
+                    return false;
+                }  
+                else if($("#mobile").val()=="") {
+                    alert("Please enter your Phone number."); 
+                    return false;
+                }  
+                else if (/([^0-9])/.test($("#mobile").val())) {
+                    alert("Wrong phone number format."); 
+                    return false;    
+                }   
+      
+                else if ($("#password").val().length<6 || $("#password").val().length>12 ) {
+                    alert("your password should within 6 to 12 characters.");
+                    return false;   
+                }    
+                else if (!/([0-9])/.test($("#password").val()) || !/([a-z])/.test($("#password").val()) || !/([A-Z])/.test($("#password").val())|| !/([\!\#\$\~])/.test($("#password").val())) {
+                    alert("your password should contain at least 1 lower case letter, 1 uppercase letter, 1 number and one of the following special characters ~ ! # $ .");
+                    return false;   
+                }
+
+	              else if ($("#password").val()!= $("#confirm_pwd").val()) {
+                   alert("Password does not match.");
+                   return false;	
+	              }
+                else if($("#selectCity").val()=="") {     
+                    alert("Please select your city."); 
+                    return false;
+                }
+                else if($("#address").val()=="") {     
+                    alert("Please enter your address."); 
+                    return false;
+                }
+
+                else if($("#terms").val()=="") {     
+                    alert("Please confirm the temr and conditions."); 
+                    return false;
+                }
+
+                return true;
+            }
+        
+    $(document).ready(function(){
+        
+        //show hint when user input thier information
+        $("#signupform").on("input",function() {
+            
+            if ($("#fname").val()=="" || !/[A-Za-z/s]$/.test($("#fname").val())){
+                
+            $("#fname").parent().find(".hint_wrong, .hint_right").remove();
+               $("#fname").after("<span  class='hint_wrong'>✘");
+            } 
+            else  {
+                $("#fname").parent().find(".hint_wrong, .hint_right").remove();
+                $("#fname").after("<span  class='hint_right'>✔</span>");
+            }
+            
+            if ($("#lname").val()=="" || !/[A-Za-z/s]$/.test($("#lname").val())){
+                
+                $("#lname").parent().find(".hint_wrong, .hint_right").remove();
+                   $("#lname").after("<span  class='hint_wrong'>✘");
+                } 
+                else  {
+                    $("#lname").parent().find(".hint_wrong, .hint_right").remove();
+                    $("#lname").after("<span  class='hint_right'>✔</span>");
+                }
+
+
+            if( !/^[A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~\;]+[A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~\;\.]*[A-Za-z0-9\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~\;]@([A-Za-z0-9/-]+[.])+[A-Za-z0-9/-]{1,}$/.test($("#email").val()) || /([\S]{65,})@([\S])/.test($("#email").val()) || /([\S])@([\S]{256,})/.test($("#email").val()) || /([\.])\1/.test($("#email").val().match(/(\S*)@/)[1]) ) {
+               $("#email").parent().find(".hint_wrong, .hint_right").remove();
+               $("#email").after("<span  class='hint_wrong'>✘ you@example.com</span>");
+           } 
+            else  {
+                $("#email").parent().find(".hint_wrong, .hint_right").remove();
+                $("#email").after("<span  class='hint_right'>✔</span>");
+            }
+            
+            if($("#mobile").val()=="" || /([^0-9])/.test($("#mobile").val())) {
+                $("#mobile").parent().find(".hint_wrong, .hint_right").remove();
+                $("#mobile").after("<span  class='hint_wrong'>✘");
+            } 
+            else  {
+                $("#mobile").parent().find(".hint_wrong, .hint_right").remove();
+                $("#mobile").after("<span  class='hint_right'>✔</span>");
+            }
+            
+            if ($("#password").val().length<6 || $("#password").val().length>12 || !/([0-9])/.test($("#password").val()) || !/([a-z])/.test($("#password").val()) || !/([A-Z])/.test($("#password").val())|| !/([\!\#\$\~])/.test($("#password").val())  ) {
+                
+                $("#password,#confirm_pwd").parent().find(".hint_wrong, .hint_right").remove();
+                $("#password,#confirm_pwd").after("<span  class='hint_wrong'>✘ 6﹤nCc(!#$~)﹤12");
+            } 
+            else  {
+                $("#password,#confirm_pwd").parent().find(".hint_wrong, .hint_right").remove();
+                $("#password,#confirm_pwd").after("<span  class='hint_right'>✔</span>");
+            } 
+            
+            if ($("#password").val()!= $("#confirm_pwd").val()) {
+                $("#confirm_pwd").parent().find(".hint_wrong, .hint_right").remove();
+                $("#confirm_pwd").after("<span  class='hint_wrong'>✘ 6﹤nCc(!#$~)﹤12");
+            }
+            else {
+                $("#confirm_pwd").parent().find(".hint_wrong, .hint_right").remove();
+                $("#confirm_pwd").after("<span  class='hint_right'>✔</span>");
+            }
+            
+            if ($("#address").val()=="" || !/[A-Za-z/s]$/.test($("#address").val())){
+                
+                $("#address").parent().find(".hint_wrong, .hint_right").remove();
+                   $("#address").after("<span  class='hint_wrong'>✘");
+                } 
+                else  {
+                    $("#address").parent().find(".hint_wrong, .hint_right").remove();
+                    $("#address").after("<span  class='hint_right'>✔</span>");
+                }
+
+                if ($("#selectCity").val()=="" || !/[A-Za-z/s]$/.test($("#selectCity").val())){
+                
+                $("#selectCity").parent().find(".hint_wrong, .hint_right").remove();
+                   $("#selectCity").after("<span  class='hint_wrong'>✘");
+                } 
+                else  {
+                    $("#selectCity").parent().find(".hint_wrong, .hint_right").remove();
+                    $("#selectCity").after("<span  class='hint_right'>✔</span>");
+                }    
+        }); 
+    });
+    </script>
