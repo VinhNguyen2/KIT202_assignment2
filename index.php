@@ -55,7 +55,7 @@
                             
                             <!--button Login-->
                               <!--click event to load login page by javascript-->
-                              <button onclick="load_page('login.html')">Login/Logout </button>
+                              <button onclick="load_page('login.php')">Login</button>
                             
                             </td>
                             <td>
