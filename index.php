@@ -12,6 +12,7 @@
                 document.getElementById("main_content").innerHTML='<object type="text/html" data="'+page+'" ></object>';
             }
 
+           
         
         </script>
 
@@ -35,6 +36,7 @@
                 <div class='col-8'>
 
                 <h2>UNITAS</h2>
+             
                 </div>
                 <div class='col-2'></div>
 
