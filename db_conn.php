@@ -14,10 +14,10 @@ $conn = mysqli_connect($db_host,$db_user,$db_password,$db_db);
   }
 
   echo 'Success: A proper connection to MySQL was made.';
-  echo '<br>';
-  echo 'Host information: '.$conn->host_info;
-  echo '<br>';
-  echo 'Protocol version: '.$conn->protocol_version;
+  //echo '<br>';
+  //echo 'Host information: '.$conn->host_info;
+  //echo '<br>';
+  //echo 'Protocol version: '.$conn->protocol_version;
 
   //$mysqli->close(); 
 

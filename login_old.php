@@ -6,7 +6,6 @@ include("db_conn.php");
 
 
 $email=$_POST['email'];
-
 $password=$_POST['password'];
 $encryptedPassword=md5($password);// encrypt the password so that it becomes unreadable.
 

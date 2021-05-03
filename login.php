@@ -71,7 +71,7 @@ if(isset($_GET['error']))
            
             <td colspan="2" class="reg_btn">
                 <br>
-                <input id="loginId" type="submit" name="login" value="Login"><br><br>
+                <input id="loginId" type="submit" name="loginBtn" value="Login"><br><br>
                 <br>
                 <br>
                 <text><a href="">Do not have an account?</a></text>
