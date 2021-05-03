@@ -4,6 +4,7 @@ include("session.php");
 
 include("db_conn.php");
 
+
 if(isset($_POST['loginBtn']))
     {
         
@@ -25,14 +26,14 @@ if(isset($_POST['loginBtn']))
         if(mysqli_num_rows($result) == 1)
         {
 
-        $_SESSION['username'] = $username;
         
-        echo "OK";
+        
 
             if($level == 2)
             {
 
-            
+            $_SESSION['host'] = $username;
+
             $_SESSION['host_email'] = $row['email'];
 
             echo "<div class='phpmessage'>
@@ -45,7 +46,7 @@ if(isset($_POST['loginBtn']))
 
             elseif($level == 3){
 
-            
+            $_SESSION['customer'] = $username;
             $_SESSION['customer_email'] = $row['email'];
 
             echo "<div class='phpmessage'>
@@ -58,7 +59,7 @@ if(isset($_POST['loginBtn']))
 
             elseif($level == 1){
 
-           
+            $_SESSION['admin'] = $username;
             $_SESSION['admin_email'] = $row['email'];
 
             echo "<div class='phpmessage'>
