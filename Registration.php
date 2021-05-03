@@ -16,22 +16,25 @@
       $sql = "INSERT INTO Customer (first_name, last_name, email, phone, password, address, city, ABN, level) VALUES ('$firstname', '$lastname', '$email', '$phone','$password','$address','$city','$abn','$level');";
       
      if(mysqli_query($conn, $sql)){
+
           echo "<div class='phpmessage'>
           <p><img src='./img/checked.png'> <br>
           Registration is completed! <br>
           Now you will be re-directed to login page<p>
           </div>";
-          header( "refresh:4;url=login.php" );
+
+          header( "refresh:4;url=login.html" );
       } else{
           echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
      }
+
     }
 
     ?>
 
     <style>
 
-        .phpmessage,
+        .phpmessage
         {
             font-size: 25px;
             position: absolute;

@@ -1,43 +1,44 @@
 <?php
-    include('db_conn.php')
-?>
 
-    <?php
+include("session.php");
 
-    if(isset($_POST['registerBtn']))
+include("db_conn.php");
+
+if(isset($_POST['registerBtn']))
     {
-      echo "<h3>have post</h3>";
-      $firstname = $_POST['firstname'];
-      $lastname = $_POST['lastname'];
-      $email = $_POST['email'];
-      $phone = $_POST['mobile'];
-      $password = $_POST['password'];
-      $address = $_POST['address'];
-      $city = $_POST['city'];
-      $ABN = $_POST['abn'];
+        
+      echo "button clicked";
+      
+      $email = $conn -> real_escape_string($_POST['email']);
+      
+      $password = md5($conn -> real_escape_string($_POST['password']));
+      
+      $level = (int)$conn -> real_escape_string($_POST['level']);
 
-        // Escape user inputs for security
+      $sql = "SELECT firstname, email, password from Customer where email = '$email' and password = '$password' and level ='$level'"; // query to retrieve login information
 
-      $firstname = mysql_real_escape_string($firstname);
-      $lastname = mysql_real_escape_string($lastname);
-      $email = mysql_real_escape_string($email);
-      $phone = mysql_real_escape_string($phone);
-      $password = mysql_real_escape_string($password);
-      $address= mysql_real_escape_string($address);
-      $city = mysql_real_escape_string($city);
-      $ABN = mysql_real_escape_string($ABN);
+      $result = mysqli_query($conn,$sql); //excute login command
 
-        // Attempt insert query execution
-      $sql = "INSERT INTO Customer (`first_name`, `last_name`, `email`, `phone`, `password`, `address`, `city`,`ABN`) VALUES ('$firstname', '$lastname', '$email', '$phone','$password','$address','$city','$ABN');";
-      mysqli_query($conn, $sql);
-      if(mysqli_query($conn, $sql)){
-          echo "Records added successfully.";
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+      $active = $row['active'];
+
+      $count = mysqli_num_rows($result);
+      
+     if($count == 1){
+
+
+         $_SESSION['username'];
+
+         
+
+        
       } else{
-          echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
-      }
-    
-    // Close connection
-    //mysqli_close();
+          echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+     }
+
     }
 
     ?>
+
+

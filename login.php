@@ -1,91 +1,104 @@
-<!-- Bootstrap CSS file -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="newstyles.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<!--Load font family from Google web fonts-->
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="newstyles.css">
-
-<!--Form login-->
-
 <?php
+
 include("session.php");
+
 include("db_conn.php");
 
-//if there is any received error message 
-if(isset($_GET['error']))
-{
-	$errormessage=$_GET['error'];
-	//show error message using javascript alert
-	echo "<script>alert('$errormessage');</script>";
-}
-
-?>
-<form action="./signin_engine.php" method="post">
-    <!--table in which contains all login elements-->
-    <table class="table table_reg">
-        <thead>
-         <br>
-        </thead>
-
-        <tbody>
-          <tr>
-          <!--Area contains login as selection-->
-           <td class="reg_as" colspan="2">
-
-
-            Login as: <input type="radio" id="cus" name="gender" value="cus" checked="checked">
-                &nbsp;Client
-                <input  type="radio" id="host" name="gender" value="host">
-                &nbsp;Host
-           </td>
-
-          </tr>
-
-
-          <tr>
-            <!--Area contains email field-->
-
-            <td>
-            <label for="email">Email</label>
-            <input type="text" name="email" required><br><br>
-            
-
-            </td>
+if(isset($_POST['loginBtn']))
+    {
         
-            <!--Area contains password field-->
+        $email = $conn -> real_escape_string($_POST['email']);
+      
+        $password = md5($conn -> real_escape_string($_POST['password']));
+        
+        $level = (int)$conn -> real_escape_string($_POST['level']);
+  
+  
+        $sql_query = "SELECT first_name, email from Customer where email='".$email."' and password='".$password."' and level='".$level."';";
+
+        $result = mysqli_query($conn,$sql_query);
+
+        $row = mysqli_fetch_array($result);
+
+        $username = $row['first_name'];
+
+        if(mysqli_num_rows($result) == 1)
+        {
+
+        $_SESSION['username'] = $username;
+        
+        echo "OK";
+
+            if($level == 2)
+            {
+
             
-            <td>
-                
-              <label for="pwd">Password</label>
-              <input type="password"  name="password" required>
+            $_SESSION['host_email'] = $row['email'];
+
+            echo "<div class='phpmessage'>
+            <p><img src='./img/checked.png'> <br>
+            Login successful!<p>
+            </div>";
+  
+            header( "refresh:4;url=host.php" );
+            }
+
+            elseif($level == 3){
+
             
+            $_SESSION['customer_email'] = $row['email'];
 
-            </td>
+            echo "<div class='phpmessage'>
+            <p><img src='./img/checked.png'> <br>
+            Login successful!<p>
+            </div>";
+  
+            header( "refresh:4;url=accomodation.html" );
+            }
 
-          </tr>
+            elseif($level == 1){
 
-
-          <tr>
-            <!--Area contains Login button-->
            
-            <td colspan="2" class="reg_btn">
-                <br>
-                <input id="loginId" type="submit" name="loginBtn" value="Login"><br><br>
-                <br>
-                <br>
-                <text><a href="">Do not have an account?</a></text>
-            </td>
-          </tr>
+            $_SESSION['admin_email'] = $row['email'];
 
+            echo "<div class='phpmessage'>
+            <p><img src='./img/checked.png'> <br>
+            Login successful!<p>
+            </div>";
+  
+            header( "refresh:4;url=manager.html" );
+            }
+        }
+        else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        }
 
+  }
 
-        </tbody>
+  
 
-      </table>
+ ?>
 
+ <style>
 
+        .phpmessage
+        {
+            font-size: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-family: "Work Sans", sans-serif;
+            color: #013580;
+            text-align: center;
 
+        }
 
+        .phpmessage img
+        {
+            width: 50px;
+         
+        
+        }
 
-</form> 
+    </style>

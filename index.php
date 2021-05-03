@@ -1,3 +1,6 @@
+<?php
+include("session.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,7 +60,7 @@
                             
                             <!--button Login-->
                               <!--click event to load login page by javascript-->
-                              <button onclick="load_page('login.php')">Login</button>
+                              <button onclick="load_page('login.html')">Login</button>
                             
                             </td>
                             <td>
@@ -76,12 +79,21 @@
                                 <!--click event to load manager page by javascript-->
                                 <button onclick="load_page('manager.html')">Admin Dashboard</button>
                             </td>
+
+
+                            <td class='welcome'>
+                                Welcome <?php echo $_SESSION['username'];?>
+                            </td>   
+                            
                            
                         </tr>
                         </table>
 
+
+
                 </div>
-                <div class='col-2'></div>
+                <div class='col-2'>
+                </div>
 
            </div>
 
