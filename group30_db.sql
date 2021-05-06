@@ -58,22 +58,23 @@ CREATE TABLE IF NOT EXISTS Customer (
   password varchar(225) NOT NULL,
   address varchar(225) NOT NULL,
   city varchar(225) NOT NULL,
-  ABN varchar(10), 
+  ABN varchar(10),
+  
   PRIMARY KEY (Customer_ID)
 ) ;
 
 -- insert customer data example password Assignment2~
 INSERT INTO Customer (customer_ID, first_name, last_name, email, phone, password, address, city, ABN) VALUES (
-1, 'Danh', 'Tran', 'dang.tran@utas.edu.au', '0495339300', '21b114482e0c92b7e3c10c96f3c2567f', '01 york street', 'launceston 7250', '234'
+ 1,'Danh', 'Tran', 'dang.tran@utas.edu.au', '0495339300', '21b114482e0c92b7e3c10c96f3c2567f', '01 york street', 'launceston 7250', '234'
 );
 INSERT INTO Customer (customer_ID, first_name, last_name, email, phone, password, address, city, ABN) VALUES (
-2, 'Thong', 'Dang', 'thong.dang@utas.edu.au', '0495339311', '21b114482e0c92b7e3c10c96f3c2567f', '03 haha street', 'Hobart 7050', NULL
+ 2,'Thong', 'Dang', 'thong.dang@utas.edu.au', '0495339311', '21b114482e0c92b7e3c10c96f3c2567f', '03 haha street', 'Hobart 7050', NULL
 );
 INSERT INTO Customer (customer_ID, first_name, last_name, email, phone, password, address, city, ABN) VALUES (
-3, 'Vinh', 'Nguyen', 'vinh.nguyen@utas.edu.au', '0495339322', '21b114482e0c92b7e3c10c96f3c2567f', '02 hehehe street', 'launceston 7250', '234'
+ 3,'Vinh', 'Nguyen', 'vinh.nguyen@utas.edu.au', '0495339322', '21b114482e0c92b7e3c10c96f3c2567f', '02 hehehe street', 'launceston 7250', '234'
 );
 INSERT INTO Customer (customer_ID, first_name, last_name, email, phone, password, address, city, ABN) VALUES (
-4, 'Hung', 'Tran', 'hung.tran@utas.edu.au', '0495339322', '21b114482e0c92b7e3c10c96f3c2567f', '02 hoho street', 'launceston 7250', NULL
+ 4,'Hung', 'Tran', 'hung.tran@utas.edu.au', '0495339322', '21b114482e0c92b7e3c10c96f3c2567f', '02 hoho street', 'launceston 7250', NULL
 );
 -- level access table
 CREATE TABLE IF NOT EXISTS Levelaccess (
@@ -109,8 +110,9 @@ CREATE TABLE IF NOT EXISTS InboxList (
 CREATE TABLE IF NOT EXISTS Booking (
   booking_number int(20) NOT NULL auto_increment,
   confirmed bool,
-  booking_time DATETIME NOT NULL,
   num_guests int(2) NOT NULL,
+  check_in DATETIME NOT NULL,
+  check_out DATETIME NOT NULL,
   house_ID int(4),
   Customer_ID int(4),
   PRIMARY KEY (booking_number),
@@ -118,6 +120,9 @@ CREATE TABLE IF NOT EXISTS Booking (
   FOREIGN KEY (Customer_ID) REFERENCES Customer(customer_ID)
 );
 
+INSERT INTO Booking(booking_number, confirmed, num_guests, check_in, check_out, house_ID, Customer_ID ) VALUES (
+ 1,TRUE, 3, '2021-06-01', '2021-06-03', 1, 1
+);
 -- payment table
 CREATE TABLE IF NOT EXISTS Payment (
   Booking_number int(4) NOT NULL,
@@ -129,6 +134,9 @@ CREATE TABLE IF NOT EXISTS Payment (
   FOREIGN KEY (Booking_number) REFERENCES Booking(booking_number)
 );
 
+INSERT INTO Payment(Booking_number, cardNumber, Expiry, VerifyCode, reviewLevel, review ) VALUES (
+ 1,'4916322247105458', '2022-09-01', '001', '3', 'good hahaha'
+);
 -- Host list table
 CREATE TABLE IF NOT EXISTS HostList (
   Host_ID Int(4) NOT NULL,
