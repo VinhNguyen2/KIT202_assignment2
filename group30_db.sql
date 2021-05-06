@@ -44,28 +44,34 @@ CREATE TABLE IF NOT EXISTS House (
   price varchar(4) NOT NULL,
 
   image varchar(255) default "img/image_not_found.png",
+  title varchar(255) NOT NULL,
   PRIMARY KEY (house_ID)
 );
 
 -- insert house information example
-INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, available, price, image)
-VALUES ('114 Elizabeth St', 'Launceston', '7250', 3, 2, 2, 0, 0, 0, 4, 0, '450', 'img/house1.jpg');
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title)
+VALUES ('114 Elizabeth St', 'Launceston', '7250', 3, 2, 2, 0, 0, 0, 4, '450', 'img/house1.jpg', 'Three bedroom house with parking slots');
 
-INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, available, price, image)
-VALUES ('78 Queenstreet Mall', 'Hobart', '7000', 4, 2, 4, 0, 0, 0, 6, 0, '550', 'img/house2.jpg');
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title)
+VALUES ('78 Queenstreet Mall', 'Hobart', '7000', 4, 2, 4, 0, 0, 1, 6, '550', 'img/house2.jpg', 'Comfy house with pets allowance');
 
-INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, available, price, image)
-VALUES ('88 York St', 'Launceston', '7250', 3, 2, 2, 0, 0, 0, 3, 0, '400', 'img/house3.jpg');
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title)
+VALUES ('88 York St', 'Launceston', '7250', 3, 2, 2, 0, 1, 0, 3, '400', 'img/house3.jpg', 'Three bedroom house with pets');
 
-INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, available, price, image)
-VALUES ('321 Brisbane St', 'Hobart', '7000', 5, 2, 3, 0, 0, 0, 8, 0, '650', 'img/house4.jpg');
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title)
+VALUES ('321 Brisbane St', 'Hobart', '7000', 5, 2, 3, 1, 1, 0, 8, '650', 'img/house4.jpg', 'Big house for big family');
 
-INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, available, price, image)
-VALUES ('114 Elizabeth St', 'Launceston', '7250', 3, 2, 2, 0, 0, 0, 3, 0, '450', 'img/house1.jpg');
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title)
+VALUES ('114 Elizabeth St', 'Launceston', '7250', 3, 2, 2, 1, 0, 0, 3, '450', 'img/house1.jpg', 'Cosy house with internet provided');
 
-INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, available, price, image)
-VALUES ('78 Queenstreet Mall', 'Hobart', '7000', 4, 2, 4, 0, 0, 0, 5, 0, '550', 'img/house2.jpg');
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title)
+VALUES ('78 Queenstreet Mall', 'Hobart', '7000', 4, 2, 4, 0, 1, 0, 5, '550', 'img/house2.jpg', '4 bedroom house with ocean view');
 
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title)
+VALUES ('128 Steele St', 'Devonport', '7310', 3, 2, 1, 1, 1, 0, 4, '550', 'img/house3.jpg', 'Cottage house with a big garden for pets');
+
+INSERT INTO House (street_address, city, zip, num_bedrooms, num_bathrooms, garage, internet, pet_friendly, smoking, max_guests, price, image, title, available)
+VALUES ('43 Victoria Parade', 'Devonport', '7310', 2, 1, 1, 1, 1, 0, 2, '550', 'img/house4.jpg', 'Small house with 5 minutes to the beach', 0);
 
 -- Customer information table
 CREATE TABLE IF NOT EXISTS Customer (
