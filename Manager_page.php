@@ -28,6 +28,10 @@
             <a href="information.php">
 			      <button class="btn btn-dark" type="button" name="button">System over view</button>
 			      </a>
+
+            <a href="Booking_list.php">
+			      <button class="btn btn-dark" type="button" name="button">Booking List</button>
+			      </a>
 		</fieldset>
 
 <?php
