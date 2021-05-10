@@ -9,7 +9,7 @@
     ID: <input type = "text" name= "customer_ID"/>
     ABN: <input type = "text" name= "ABN"/>
     LEVEL: <input type = "text" name= "Level"/> 
-    DESCRPTION: <input type = "text" name= "desription"/>
+    DESCRPTION: <input type = "text" name= "Description"/>
         <input type= "submit" name="update" value="update">
         <button><a href="Manager_page.php">Go back to Manager page</a></button>
     </form>
@@ -55,24 +55,30 @@ if (mysqli_num_rows($result) > 0){
 }   
          if (isset($_POST['update'])){
              $ID=intval($_POST["customer_ID"]) ;
-             $Level = intval($_POST["Level"]);
-             $description = $_POST["desription"];
-            
-            
-              // update from Levelaccess table
-            $query = $mysqli->prepare(
-                'UPDATE Levelaccess SET level_code = ?, description = ? WHERE Customer_ID = ?'
-            );
-    
-            $query->bind_param( 'isi', $Level, $description, $ID );
-    
+             $Level = $_POST["Level"];
+             $description = $_POST["Description"];
+             $ABN = $_POST["ABN"];
+
+             // Update user's access level in the table Levelaccess
+             $sql = 'UPDATE Levelaccess SET level_code = ?, description = ? WHERE Customer_ID = ?';
+             $query = $conn->prepare($sql );
+             $query->bind_param( 'ssi', $Level, $description, $ID);
             if ( ! $query->execute() ) {
-                trigger_error( 'Error updating participant: ' . $query->error );
+                trigger_error( 'Error updating accesslevel : ' . $query->error );
             }
-    
-             header( 'Location: ChangeLevelAccess.php' );
+
+            // Update ABN for user in tabble Customer 
+            $sql1 = 'UPDATE Customer SET ABN = ? WHERE customer_ID = ?';
+            $query1 = $conn->prepare($sql1 );
+		        $query1->bind_param( 'si', $ABN, $ID );
+            if ( ! $query1->execute() ) {
+			        trigger_error( 'Error updating ABN ' . $query1->error );
+		        }
+            
+             header( 'Location: ./ChangeLevelAccess.php' );
              
          }
+         
   $conn->close();
 ?>
 </body>
