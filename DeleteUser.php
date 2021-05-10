@@ -62,15 +62,14 @@ if (mysqli_num_rows($result) > 0){
          if (isset($_POST['delete'])){
              //$ID=$_POST["customer_ID"];
 
-             // delet from Levelaccess table
+             // delete data from Levelaccess table
              $query1 = "delete from Levelaccess where Customer_ID='$_POST[customer_ID]'";
              $conn->query($query1);
-             header( 'Location: DeleteUser.php' );
-             
-             
+            
+             // delete data from customer tabele
              $query = "delete from Customer where customer_ID ='$_POST[customer_ID]'";
              $conn->query($query);
-
+             header( 'Location: DeleteUser.php' ); 
              
          }
   $conn->close();
