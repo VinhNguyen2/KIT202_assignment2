@@ -3,6 +3,7 @@
 <body>
 <center>
 <h2>System Over view </h2>
+<button><a href="Manager_page.php">Go back to Manager page</a></button>
 </center>
 </body>
 </html>
