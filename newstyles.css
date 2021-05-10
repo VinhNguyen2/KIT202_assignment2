@@ -1,0 +1,325 @@
+/*style body background and font family*/
+
+body {
+    background: whitesmoke;
+  
+    font-family: "Work Sans", sans-serif;
+  }
+  
+  /*style text color and background color for top menu and about section*/
+  
+  .menu_top,
+  .menu_below_top,
+  .about {
+    color: white;
+    background-color: #013580;
+  }
+  
+  /*style for the buttons on the top header*/
+  button {
+    background-color: #013580;
+    transition-duration: 0.4s;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  img {
+    width: 90%;
+    overflow: visible;
+    display: flex;
+  }
+  
+  /*style for the div main content*/
+  
+  #main_content {
+    border: 1px solid grey;
+    margin: auto;
+  
+    display: flex;
+    flex-flow: column wrap;
+    height: auto;
+    overflow: visible;
+  }
+  
+  /*style the buttons*/
+  
+  input[type="submit"],
+  button {
+    padding: 5px 15px;
+    background: #013580;
+    color: white;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  /*styles for following pages : registration.html, login.html, search.html*/
+  
+  .register_html {
+    display: flex;
+    overflow-y: initial;
+    overflow-x: initial;
+  }
+  
+  /*style the website div containers*/
+  
+  .login-container,
+  .register_html,
+  .search-container {
+    width: 30%;
+    margin: auto;
+    color: #013580;
+    display: flex;
+    flex-flow: column;
+    height: max-content;
+    object-fit: cover;
+  }
+  
+  /*style font size and width for the labels and inputs*/
+  
+  .login-container label,
+  .login-container input,
+  .register_html label,
+  .register_html input,
+  .search-container label,
+  .search-container input,
+  .gender {
+    font-size: 20px;
+  
+    width: 100%;
+  
+    padding-top: 10px;
+  }
+  
+  /*style the following inputs */
+  
+  .login-container input,
+  .register_html input,
+  .search-container input {
+    border: 0;
+    border-bottom: 2px solid #013580;
+  }
+  
+  /*remove border of text area when in focus*/
+  
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+  
+  /*Set heigh for object inside main_content div*/
+  object {
+    min-height: 800px;
+    width: 100%;
+  }
+  
+  /*Style for accomodation.html*/
+  
+  .accomodation_img img {
+    width: 200px;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  
+  .accomodation_img {
+    padding: 5px;
+  }
+  
+  .accomodation_details {
+    padding: 2px;
+  }
+  
+  .accomodation_info {
+    padding-top: 10px;
+  }
+  
+  .acomodation_1st_col {
+    border: 2px yellow;
+  }
+  
+  .accomodation_title {
+    font: size 18px;
+    font-weight: bold;
+    color: #013580;
+  }
+  
+  .icofont-bed,
+  .icofont-bathtub,
+  .icofont-car {
+    font-size: 22px;
+    color: #013580;
+  }
+  
+  .accomodation_section {
+    padding-top: 10px;
+    border-bottom: 1px solid grey;
+  }
+  
+  /*Style for host.html*/
+  
+  .accomodation_btn {
+    padding: 5px 15px;
+    font-size: 15px;
+    background: #013580;
+    color: white;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .accomodation_btn:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+  }
+  
+  /*Style for manager menu*/
+  
+  .manager_nav {
+    margin-top: 10px;
+    background: #013580;
+  
+    margin: auto;
+  }
+  .admin_btn {
+    background: #013580;
+    color: white;
+    border: 0 none;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  button:hover {
+    opacity: 0.7;
+    font-size: 1em;
+  }
+  
+  /*Responsive style for search box*/
+  
+  @media only screen and (max-width: 800px) {
+    .resp table {
+      display: block;
+    }
+    .resp th {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      display: block;
+    }
+    .resp tr {
+      border: 1px solid #ccc;
+      display: block;
+    }
+    .resp td {
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      width: 100%;
+      background-color: White;
+      text-indent: 50%;
+      text-align: left;
+      padding-left: 0px;
+      display: block;
+    }
+    .resp td:nth-child(1) {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      font-size: 20px;
+      text-indent: 0%;
+      text-align: center;
+    }
+    .resp td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      text-indent: 0%;
+      text-align: left;
+      white-space: nowrap;
+      background-color: White;
+      font-weight: bold;
+    }
+    /*
+      Label the data
+      */
+    .resp td:nth-of-type(2):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(3):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(4):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(5):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(6):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(7):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(8):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(9):before {
+      content: attr(data-th);
+    }
+    .resp td:nth-of-type(10):before {
+      content: attr(data-th);
+    }
+  }
+  
+  /*Style for responsive table registration and login*/
+  
+  .table_reg {
+    color: #013580;
+    font-weight: 100;
+    font-size: 20px;
+  }
+  
+  .table_reg {
+    margin: auto;
+  }
+  
+  .table_reg label {
+    float: left;
+    padding: 5px;
+    width: 10em;
+    margin-right: 1em;
+  }
+  
+  .table_reg input {
+    border: none;
+    border-bottom: 1px solid grey;
+  }
+  
+  .table_reg .agree,
+  .table_reg .reg_btn,
+  .table_reg .reg_as {
+    text-align: center;
+    padding-bottom: 1em;
+  }
+  
+  .phpmessage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: "Work Sans", sans-serif;
+    color: #013580;
+  }
+  
