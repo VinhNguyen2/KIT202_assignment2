@@ -3,6 +3,9 @@ include('db_conn.php')
 ?>
 
 <?php
+echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
+echo "<link rel='stylesheet' type='text/css' href='/stylesheet.css'/>";
+
 include('db_conn.php');
 if(isset($_POST['register'])){
 	$firstname = $_POST['firstname'];
@@ -16,11 +19,12 @@ if(isset($_POST['register'])){
   $ABN = $_POST['abn'];
 
 // verify email
-$query = "SELECT email, password FROM Customer WHERE email='$email'";
+$query = "SELECT FROM Customer WHERE email='$email'";
   //$query = "SELECT FROM Customer WHERE `email`='$email');";
 		$result = mysqli_query($conn, $query);
     if(mysqli_num_rows($result) != 0) {
-			$detailserror .= "Email already registered.<br>";
+		//	$detailserror .= "Email already registered.<br>";
+      header('Location: Registration.php?error=Email already registered');
 		}
 
     //check password
@@ -50,7 +54,6 @@ $sql = 'INSERT INTO Customer (first_name, last_name, email, phone, password, add
     $query = "SELECT * FROM Customer ORDER BY customer_ID DESC LIMIT 1;";
 
     $result = mysqli_query($conn, $query);
-//$row2 = mysqli_fetch_array($result);
     $row = mysqli_fetch_array($result);
     $id = $row['customer_ID'];
 
@@ -61,7 +64,7 @@ $sql = 'INSERT INTO Customer (first_name, last_name, email, phone, password, add
 			trigger_error( 'Error adding Level access: ' . $query1->error );
 		}
     
-		header( 'Location: index.php' );
+		header( 'Location: login.php' );
 		die;
 // Close connection 
 mysqli_close();
