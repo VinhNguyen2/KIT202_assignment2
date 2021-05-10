@@ -3,7 +3,7 @@
 <body>
 
 <center>
-<h2>Manage Page </h2>
+<h2>Manager Page </h2>
 </center>
    <!--  the manage can some acction  from user list from this page--> 
 		<fieldset>
