@@ -15,6 +15,7 @@ body {
   background-color: #013580;
 }
 
+
 /*style for the buttons on the top header*/
 button {
   background-color: #013580;
@@ -45,6 +46,12 @@ img {
   height: auto;
   overflow: visible;
 }
+
+.form-body
+{
+  margin: 0 auto;
+}
+
 
 /*style the buttons*/
 
@@ -285,31 +292,31 @@ button:hover {
 
 /*Style for responsive table registration and login*/
 
-.table_reg {
+.table_reg, .table_addhouse {
   color: #013580;
   font-weight: 100;
   font-size: 20px;
 }
 
-.table_reg {
+.table_reg, .table_addhouse {
   margin: auto;
 }
 
-.table_reg label {
+.table_reg label, .table_addhouse label {
   float: left;
   padding: 5px;
   width: 10em;
   margin-right: 1em;
 }
 
-.table_reg input {
+.table_reg input, .table_addhouse input {
   border: none;
   border-bottom: 1px solid grey;
 }
 
 .table_reg .agree,
 .table_reg .reg_btn,
-.table_reg .reg_as {
+.table_reg .reg_as, .table_addhouse {
   text-align: center;
   padding-bottom: 1em;
 }
@@ -322,3 +329,34 @@ button:hover {
   font-family: "Work Sans", sans-serif;
   color: #013580;
 }
+
+
+/*Style for drop down user menu*/
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display:none;
+  position: absolute;
+  padding:10px;
+  min-width: 120px;
+  z-index: 1;
+  background-color: #013580;
+  color:white;
+}
+
+.dropdown-content a {
+ 
+  
+  text-decoration: none;
+  display: block;
+  color:#ccc;
+}
+
+.dropdown-content a:hover {color:aquamarine}
+
+.dropdown:hover .dropdown-content {display: block;}
+

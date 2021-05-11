@@ -1,23 +1,111 @@
+<?php
+include("session.php");
+include("db_conn.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
 
-        <!-- Bootstrap CSS file -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="newstyles.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <!--Load font family from Google web fonts-->
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="newstyles.css">
-        <link rel="stylesheet" href="icofont.min.css">
+    <body>
+        <!-- set up a div 'container_fluid' which display full width on any devices-->
+        <div class="container_fluid">
 
-  <?php 
-  include("db_conn.php");
-  ?>
+          <?php
+
+          include("header.php");
+          
+
+          ?>
+         
 
 
-    <div class='addBtn'>
-        <button class="admin_btn"  onclick="openAdmin('admin_accomodation')">Add New House</button>
-    </div>
+           <!-- section for main content to be appeared-->
+           <div class="row row_main_content" >
 
-    <div class="row accomodation_section">
+                <div class='col-2'></div>
+
+                <div class='col-8' id="main_content">
+
+                    <?php
+
+
+
+
+                    $sql_query = "SELECT * from House where hostedby='".$_SESSION['hostid']."';";
+
+                    $result = mysqli_query($conn,$sql_query);
+
+                    $row = mysqli_fetch_array($result);
+
+                    $title = $row['title'];
+                    $address = $row['address'];
+                    $city = $row['city'];
+                    $price = $row['price'];
+                    $max = $row['max'];
+                    $num_room = $row['num_room'];
+                    $num_bathroom = $row['num_bathroom'];
+                    $available = $row['available'];
+                    $garage = $row['garage'];
+                    $image = $row['image'];
+                    $smoking = $row['smoking'];
+                    $internet = $row['internet'];
+                    $description = $row['description'];
+                    $hostedby = $row['hostedby'];
+
+                    if(mysqli_num_rows($result) > 0)
+                    {
+                        while($row = $result->fetch_assoc()) {
+
+
+                            echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+
+
+                          }
+                    }
+                    else
+                    {
+                        echo "error!";
+                    }
+
+
+
+                    ?>
+                    
+                    <div class="row">
+                    
+                        <!--your content goes here
+
+                         
+
+                        -->
+                    
+                    </div>
+                
+                </div>
+                <div class='col-2'></div>
+
+           </div>
+
+
+           
+           <!--section for UNITAS about information-->
+           <div class="row about">
+
+            <?php include("footer.php")?>
+
+            </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+<div class="row accomodation_section">
         
         <div class="col-6 acomodation_1st_col">
 

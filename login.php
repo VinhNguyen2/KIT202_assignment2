@@ -15,13 +15,15 @@ if(isset($_POST['loginBtn']))
         $level = (int)$conn -> real_escape_string($_POST['level']);
   
   
-        $sql_query = "SELECT first_name, email from Customer where email='".$email."' and password='".$password."' and level='".$level."';";
+        $sql_query = "SELECT customer_ID, first_name, email from Customer where email='".$email."' and password='".$password."' and level='".$level."';";
 
         $result = mysqli_query($conn,$sql_query);
 
         $row = mysqli_fetch_array($result);
 
         $username = $row['first_name'];
+
+        $hostid = $row['customer_ID'];
 
         if(mysqli_num_rows($result) == 1)
         {
@@ -31,6 +33,8 @@ if(isset($_POST['loginBtn']))
             {
 
             $_SESSION['host'] = $username;
+
+            $_SESSION['hostid'] = $hostid;
 
             $_SESSION['host_email'] = $row['email'];
 
