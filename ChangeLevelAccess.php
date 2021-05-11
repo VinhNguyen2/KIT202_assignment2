@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
+  <!-- Bootstrap CSS file -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="newstyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Load font family from Google web fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="newstyles.css">
 <body>
 
 <center>
-<h2>Delete users </h2>
+<h2>Change user level access </h2>
 </center>
     <form action ="" method = "post">
     ID: <input type = "text" name= "customer_ID"/>
     ABN: <input type = "text" name= "ABN"/>
     LEVEL: <input type = "text" name= "Level"/> 
-    DESCRPTION: <input type = "text" name= "Description"/>
+    
+    DESCRPTION: <select name="Description" id="selectDescription">
+          <option value="">Select type of user</option>
+            <option value="Host">Host</option>
+            <option value="Client">Cilent</option>
         <input type= "submit" name="update" value="update">
         <button><a href="Manager_page.php">Go back to Manager page</a></button>
     </form>
    <!--  the director can delete a food from master list from this page--> 
 <?php
+
+echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
+echo "<link rel='stylesheet' type='text/css' href='newstyles.css'>";
 include('db_conn.php');   //db connection
  
     // get data from customer table
