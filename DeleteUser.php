@@ -13,6 +13,8 @@
     </form>
    <!--  the director can delete a food from master list from this page--> 
 <?php
+echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
+echo "<link rel='stylesheet' type='text/css' href='newstyles.css'>";
 include('db_conn.php');   //db connection
  
     // get data from customer table

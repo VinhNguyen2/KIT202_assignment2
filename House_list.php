@@ -1,6 +1,13 @@
 
 <!DOCTYPE html>
 <html>
+  <!-- Bootstrap CSS file -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="newstyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Load font family from Google web fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="newstyles.css">
 <body>
 
 <center>
@@ -14,6 +21,8 @@
     </form>
    <!--  the director can delete a food from master list from this page--> 
    <?php
+   echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
+   echo "<link rel='stylesheet' type='text/css' href='newstyles.css'>";
 include ("session.php");
 include("db_conn.php");
 

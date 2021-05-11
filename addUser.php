@@ -7,7 +7,7 @@
 </html>
 
 <?php
-include("Registration.php");
+include("Registration.html");
 header( 'Location: Manager_page.php' );
 ?>
     <button><a href="Manager_page.php">Go back to main list</a></button>
