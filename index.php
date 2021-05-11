@@ -71,7 +71,7 @@ include("session.php");
                             </td>
                             <!--button Host Dashboard-->
                             <td><!--click event to load host page by javascript-->
-                                <button onclick="load_page('host.html')">Host Dashboard</button>
+                                <button onclick="load_page('host.php')">Host Dashboard</button>
                             </td>
 
                             <td>
@@ -82,7 +82,20 @@ include("session.php");
 
 
                             <td class='welcome'>
-                                Welcome <?php echo $_SESSION['username'];?>
+
+                            <?php
+
+                            if (isset($_SESSION['host']))
+                            {
+                                echo "Welcome ".$_SESSION['host'];
+                            }
+                            elseif (isset($_SESSION['customer']))
+                            {
+                                echo "Welcome ".$_SESSION['customer'];
+                            }
+
+                            ?>
+                                
                             </td>   
                             
                            

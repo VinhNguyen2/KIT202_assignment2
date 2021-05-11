@@ -26,8 +26,6 @@ if(isset($_POST['loginBtn']))
         if(mysqli_num_rows($result) == 1)
         {
 
-        
-        
 
             if($level == 2)
             {
@@ -38,7 +36,7 @@ if(isset($_POST['loginBtn']))
 
             echo "<div class='phpmessage'>
             <p><img src='./img/checked.png'> <br>
-            Login successful!<p>
+            Welcome back ".$username."<p>
             </div>";
   
             header( "refresh:4;url=host.php" );
@@ -51,8 +49,9 @@ if(isset($_POST['loginBtn']))
 
             echo "<div class='phpmessage'>
             <p><img src='./img/checked.png'> <br>
-            Login successful!<p>
+            Welcome back ".$username."<p>
             </div>";
+  
   
             header( "refresh:4;url=accomodation.html" );
             }
@@ -64,14 +63,21 @@ if(isset($_POST['loginBtn']))
 
             echo "<div class='phpmessage'>
             <p><img src='./img/checked.png'> <br>
-            Login successful!<p>
+            Welcome back ".$username."<p>
             </div>";
+  
   
             header( "refresh:4;url=manager.html" );
             }
         }
         else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+            echo "<div class='phpmessage'>
+            
+            <p>
+            <img src='./img/failed.png'><br>
+            Login failed! <br>
+            Please check your details
+            </div>";;
         }
 
   }

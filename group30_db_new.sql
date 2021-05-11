@@ -7,6 +7,10 @@
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
+
+USE group30_db;
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
