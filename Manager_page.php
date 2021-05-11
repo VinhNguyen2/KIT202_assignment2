@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+  <!-- Bootstrap CSS file -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="newstyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Load font family from Google web fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="newstyles.css">
 <body>
 
 <center>
@@ -17,7 +24,7 @@
 			      <button class="btn btn-dark" type="button" name="button">Delete User</button>
 			      </a>
 
-            <a href="AddUser.php">
+            <a href="Registration.html">
 			      <button class="btn btn-dark" type="button" name="button">Add User</button>
 			      </a>
 
@@ -35,6 +42,8 @@
 		</fieldset>
 
 <?php
+echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>";
+echo "<link rel='stylesheet' type='text/css' href='newstyles.css'>";
 include('db_conn.php');   //db connection
  
     // get data from customer table
