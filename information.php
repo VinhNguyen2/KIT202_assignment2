@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+    <!-- Bootstrap CSS file -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="newstyles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Load font family from Google web fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="newstyles.css">
 <body>
 <center>
 <h2>System Over view </h2>
