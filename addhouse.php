@@ -83,7 +83,7 @@ include("session.php");
 
                                 <tr>
                                   <td><label for="htitle">Price per week</label>
-                                    <input type="text" id="haddress" name="haddress" required/></td>
+                                    <input type="text" id="haddress" name="hprice" required/></td>
 
                                   <td>
                                   Available
@@ -108,9 +108,9 @@ include("session.php");
                                 <td>
 
                                  
-                                <input type="checkbox" id="wifi" name="wifi" value="wifi"> Wifi
-                                  <input type="checkbox" id="pet" name="pet" value="pet"> Pet 
-                                  <input type="checkbox" id="smoke" name="smoke" value="smoke"> Smoke <br>
+                                <input type="checkbox" id="wifi" name="wifi" value="1"> Wifi
+                                  <input type="checkbox" id="pet" name="pet" value="1"> Pet 
+                                  <input type="checkbox" id="smoke" name="smoke" value="1"> Smoke <br>
                                   <table>
                                     <tr>
                                       <td>Living Room</td>
@@ -132,8 +132,8 @@ include("session.php");
                                   </select></td>
                                     </tr>
                                     <tr>
-                                      <td>Max People</td>
-                                      <td><select name="max" id="lroom">
+                                      <td>Max guests</td>
+                                      <td><select name="max" id="max">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -165,7 +165,7 @@ include("session.php");
                                 <tr>
                                   <td colspan="2" class="reg_btn">
                                     <br>
-                                    <input type="submit" value = "Add Accomodation" name = "registerBtn"/>
+                                    <input type="submit" value = "Add Accomodation" name = "addhouseBtn"/>
                                   </td>
                                 </tr>
                               
@@ -186,8 +186,6 @@ include("session.php");
            
            <!--section for UNITAS about information-->
            <div class="row about">
-
-            <?php include("footer.php")?>
 
             </div>
         

@@ -13,7 +13,7 @@ $conn = mysqli_connect($db_host,$db_user,$db_password,$db_db);
     die("ERROR: Could not connect. " . mysqli_connect_error());
   }
 
-  echo 'Success: A proper connection to MySQL was made.';
+  //echo 'Success: A proper connection to MySQL was made.';
   //echo '<br>';
   //echo 'Host information: '.$conn->host_info;
   //echo '<br>';

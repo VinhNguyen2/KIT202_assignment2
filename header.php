@@ -15,6 +15,15 @@
                 document.getElementById("main_content").innerHTML='<object type="text/html" data="'+page+'" ></object>';
             }
 
+            function abnDisabler() {
+                var chkHost = document.getElementById("host");
+                var divabn = document.getElementById("abntd");
+                var divcity = document.getElementById("tdcity");
+                divabn.style.display = chkHost.checked ? "block" : "none";
+                divcity.style.display = chkHost.checked ? "block" : "none";
+            }
+    </script>
+
            
         
         </script>
@@ -53,31 +62,19 @@
                         <tr>
                  
                             <td>
-                                <button onclick = "load_page('accomodation.html')">Home</button>
+                                <button><a href='index.php'>Home</a></button>
                             </td>
                             <td>
                             
                             <!--button Login-->
                               <!--click event to load login page by javascript-->
-                              <button onclick="load_page('login.html')">Login</button>
+                              <button><a href="login.php">Login</a></button>
                             
                             </td>
-                            <td>
-                                <!--button Register-->
-                                <!--click event to load registration page by javascript-->
-                                <button onclick="load_page('registration.html')">Register</button>
-                                
-                            </td>
+                           
                             <!--button Host Dashboard-->
-                            <td><!--click event to load host page by javascript-->
-                                <button onclick="load_page('host.php')">Host Dashboard</button>
-                            </td>
-
-                            <td>
-                                <!--button Admin Dashboard-->
-                                <!--click event to load manager page by javascript-->
-                                <button onclick="load_page('manager.html')">Admin Dashboard</button>
-                            </td>
+                            
+                            
 
 
                             <td class='welcome'>
@@ -87,7 +84,7 @@
                                         echo "<div class='dropdown'>
                                         <button class='dropbtn'>Welcome ".$_SESSION['host']." <i class='fa fa-caret-down'></i></button>
                                         <div class='dropdown-content'>
-                                            <a href='#'>Dash Board</a>
+                                            <a href='host.php'>Dash Board</a>
                                             <a href='addhouse.php'>Add New House</a>
                                             <a href='logout.php'>Log Out</a>
                                         </div>
