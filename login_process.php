@@ -73,7 +73,8 @@ include("db_conn.php");
                                 elseif($level == 3){
 
                                 $_SESSION['customer'] = $username;
-                                $_SESSION['customer_email'] = $row['email'];
+                                $_SESSION['customerid'] = $row['customer_ID'];
+                                
 
                                 echo "<div class='phpmessage'>
                                 <p><img src='./img/checked.png'> <br>
