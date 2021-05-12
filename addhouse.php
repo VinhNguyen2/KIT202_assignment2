@@ -23,8 +23,6 @@ include("session.php");
           
 
           ?>
-         
-
 
            <!-- section for main content to be appeared-->
            <div class="row row_main_content" >
@@ -83,13 +81,19 @@ include("session.php");
 
                                 </tr>
 
+                                <tr>
+                                  <td><label for="htitle">Price per week</label>
+                                    <input type="text" id="haddress" name="haddress" required/></td>
 
-
-
-                                
+                                  <td>
+                                  Available
+                                  <input type="date" id="havailable" name="havailable">
+                                  </td>
+                                  </tr>
+                                 
                                
-
                                 
+                                <tr>
 
                                 <td>
                                   Description <br>
@@ -147,16 +151,16 @@ include("session.php");
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                   </select></td>
+
+                                  
                                     </tr>
+
+                                    
                                     </table>
                                   
 
                                 </td>
-                                <tr>
-
-                                </tr>
-                                 
-                               
+      
                           
                                 <tr>
                                   <td colspan="2" class="reg_btn">
