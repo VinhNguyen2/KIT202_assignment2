@@ -342,7 +342,7 @@ button:hover {
   display:none;
   position: absolute;
   padding:10px;
-  min-width: 120px;
+  width: 300px;
   z-index: 1;
   background-color: #013580;
   color:white;
@@ -360,3 +360,59 @@ button:hover {
 
 .dropdown:hover .dropdown-content {display: block;}
 
+
+
+/*Style for table host*/
+
+#page-container {
+  width: 100%;
+  /* border: solid 10px greenyellow;  */
+  
+}
+
+.house-container {
+ 
+  
+  border-bottom: 1px dotted grey;
+  width: 100%;
+}
+
+.item-container {
+  margin: 1em;
+}
+
+#house-image-div
+{
+  float:left;
+}
+
+.house-image
+{
+  width: 300px;
+  height: auto;
+}
+
+#house-details-div {
+  font-size: 1.1em;
+  
+
+  float: left;
+  margin: 5px;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+
+
+
+#house-details-div .review-btn {
+  margin-top: 1em;
+}
+
+.pricetag
+
+
+{
+  font-weight: 300;
+  color:#013580;
+}

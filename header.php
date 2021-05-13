@@ -22,11 +22,9 @@
                 divabn.style.display = chkHost.checked ? "block" : "none";
                 divcity.style.display = chkHost.checked ? "block" : "none";
             }
-    </script>
-
-           
-        
         </script>
+
+      
 
         <!-- Bootstrap CSS file -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -35,6 +33,7 @@
         <!--Load font family from Google web fonts-->
         <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -62,13 +61,13 @@
                         <tr>
                  
                             <td>
-                                <button><a href='index.php'>Home</a></button>
+                                <button><i class="fa fa-home"></i><a href='index.php'>Home</a></button>
                             </td>
                             <td>
                             
                             <!--button Login-->
                               <!--click event to load login page by javascript-->
-                              <button><a href="login.php">Login</a></button>
+                              <button><i class="fa fa-key"></i><a href="login.php">Login</a></button>
                             
                             </td>
                            
@@ -82,11 +81,13 @@
                                    if(isset($_SESSION['host']))
                                    {
                                         echo "<div class='dropdown'>
-                                        <button class='dropbtn'>Welcome ".$_SESSION['host']." <i class='fa fa-caret-down'></i></button>
+                                        <i class='fa fa-user'></i><button class='dropbtn'>Welcome ".$_SESSION['host']." <i class='fa fa-caret-down'></i></button>
                                         <div class='dropdown-content'>
-                                            <a href='host.php'>Dash Board</a>
-                                            <a href='addhouse.php'>Add New House</a>
-                                            <a href='logout.php'>Log Out</a>
+                                        <a href='host.php'><i class='fa fa-bars'></i> Dash Board</a>
+                                        <a href='addhouse.php'><i class='fa fa-plus-square'></i> Add New House</a>
+                                        <a href='addhouse.php'><i class='fa fa-envelope'></i> Check your inbox</a>
+
+                                        <a href='logout.php'><i class='fa fa-reply'></i> Log Out</a>
                                         </div>
                                         </div>";
     

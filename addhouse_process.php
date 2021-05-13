@@ -52,7 +52,7 @@ if(isset($_POST['addhouseBtn']))
     $max = $conn -> real_escape_string($_POST['max']);
     $parking = $conn -> real_escape_string($_POST['park']);
 
-    $image = "img/house1.jpg";
+    $image = $_POST['imgLink'];
 
     $host = $_SESSION['hostid'];
 

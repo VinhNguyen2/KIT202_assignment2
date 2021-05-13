@@ -54,7 +54,7 @@ include("session.php");
                                   Images:
 
                                   
-                                  <input type='button' name='registerBtn' value='Upload'/>
+                                  <input type='text' name='imgLink'/>
 
                                     
                                   </td>

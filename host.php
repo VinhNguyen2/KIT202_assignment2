@@ -15,7 +15,7 @@ include("db_conn.php");
           
 
           ?>
-         
+          
 
 
            <!-- section for main content to be appeared-->
@@ -27,78 +27,73 @@ include("db_conn.php");
                     
                     <div class="row">
 
-                                    <?php
+                    <?php
 
-                                    //echo $_SESSION['hostid'];
+                      $sql_query = "SELECT house_ID, title, address, city, price, max, num_room, num_bathroom, available, garage, image, smoking, internet, description from House where hostedby='".$_SESSION['hostid']."';";
 
-                                    $sql_query = "SELECT title, address, city, price, max, num_room, num_bathroom, available, garage, image, smoking, internet, description from House where hostedby='".$_SESSION['hostid']."';";
+                      $result = mysqli_query($conn,$sql_query);
 
-                                    $result = mysqli_query($conn,$sql_query);
-
-                                    $row = mysqli_fetch_array($result);
-
-                                 
-
-                                    if(mysqli_num_rows($result) > 0)
-                                    {
-                                        echo $_SESSION['hostid'];
-                                        while($row = $result->fetch_assoc()) {
+                      $row = mysqli_fetch_array($result);
 
 
-                                            echo"<div class='row'>
+                      if(mysqli_num_rows($result) > 0)
+                      {
+                          $_SESSION['houseid'] = $row['house_ID'];
+                          while($row = $result->fetch_assoc()) {
 
-                                                <div class='col-6'>
+                            if($row['internet'] ==1)
+                            {
+                                $internet = "<i class='fa fa-wifi'></i>";
+                            }
+                            else{
 
-                                                    <div class='row'>
-                                
-                                                        <!-- Accomodation images will be showed here-->
-                                                        <div class='col-4 accomodation_img'>
-                                
-                                                            <img class='img-fluid' src='".$row['image']."'/>
-                                                        </div>
-
-                                                        <div class='col-8'>
-
-                                                        <label>".$row['title']."</label> <br>
-                                                        
-                                                        Address: ".$row['address']."<br>
-
-                                                         ".$row['price']."&nbsp;".$row[num_room]." <i class='icofont-bed'></i> &nbsp;".$row[num_bathroom]." <i class='icofont-bathtub'></i>&nbsp; ".$row[garage]."<i class='icofont-car'></i> <br>
-
-                                                    
-                                                        <!-- List of buttons include Approve - Edit - Remove-->
-
-                                                        <input type='button' class='accomodation_btn' value='Approve'>
-                                                        <input type='button' class='accomodation_btn' value='Edit'> 
-                                                        <input type='button' class='accomodation_btn' value='Remove'> 
-
-                                                        </div>
+                                $internet = "";
+                            }
 
 
-                                                    </div>
+                            echo '
+                                <form >
+                                <div class="house-container">
+                                    <div id="house-image-div" class="item-container">
+                                        <img class="house-image" src="' . $row['image'] . '" alt="house-image">
+                                    </div>
 
-                                                
+                                    <div id="house-details-div" class="item-container">
+                                        <a href="" class="accommodation_title">' . $row['title'] . '</a>
+                                        <br>
+                                        Address: ' . $row['address'] . '
+                                        <br>'.$row['description'].'<br>
 
-
-                                
-                                                </div>
+                                        $ ' . $row['price'] . ' PW
+                                        &nbsp; ' . $row['num_room'] . ' <i class="fa fa-bed"></i>
+                                        &nbsp; ' . $row['num_bathroom'] . ' <i class="fa fa-shower"></i>
+                                        &nbsp; ' . $row['garage'] . '  <i class="fa fa-car"></i>
+                                        &nbsp; ' . $internet . '
+                                        &nbsp; ' . $smoking . '
+                                        <br /> 
+                                        
+                                        <button class="review-btn" name="heditBtn">Edit</button>
+                                        <button class="review-btn" name="hremoveBtn">Remove</button>                     
+                                    </div>
+                                </div>
+                                </form>
+                            ';
 
 
 
+                          }
 
-                                            </div>
-                                            ";
+                        }
 
+                    else{
+                        
+                        echo "You have no house! List your house here";
+                        }
 
-                                        }
-                                    }
-                                    else
-                                    {
-                                        echo "<a ref='addhouse.php'>List your house now</a>";
-                                    }
-
-
-                                    ?>
+                    ?>
+                       
+                    
+                                    
                     
                     </div>
                 
